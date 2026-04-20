@@ -1,8 +1,10 @@
 import { Router } from "express";
 import { upload } from "./document.upload";
-import { uplaodDocument } from "./document.controller";
+import { uploadDocument, testParse } from "./document.controller";
 
-const router =Router()
+const router = Router();
 
-router.post("/upload",upload.single("file"),uplaodDocument)
-export default router ;
+router.post("/upload", upload.single("file"), uploadDocument);
+router.post("/test-parse", upload.single("file"), testParse);
+
+export default router;
